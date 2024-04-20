@@ -1,8 +1,9 @@
 # Tetris
 
-I made the game using C++, OOP, and raylib Library based on a tutorial on YouTube.
+Venturing into the captivating world of game development, I embarked on a project that allowed me to expand my technical skills and explore new tools. For the first time, I utilized C++, Object-Oriented Programming (OOP) principles, and the raylib Library to create an engaging game.<br>
+This project was guided by an insightful tutorial I discovered on YouTube, which served as a roadmap for my development process. The use of Visual Studio Code was a new experience for me, as I am traditionally accustomed to using Visual Studio for C++ development.<br>
+This endeavor not only allowed me to create an interactive game but also provided me with the opportunity to delve into C++, OOP, and the raylib Library. It was a challenging yet rewarding experience that has fueled my passion for game development and broadened my technical skill set.<br><br>
 
-Live Demo: https://tuantranquang0607.github.io/Pacman-Project/<br>
 Source: https://www.youtube.com/watch?v=wVYKG_ch4yM<br>
 Source Code: https://github.com/educ8s/Cpp-Tetris-Game-with-raylib
 
