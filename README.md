@@ -1,14 +1,16 @@
-#Tetris
+# Tetris
 
-I made the game usning Dijkstra algorithm, HTML, CSS, and JS based on a toturial on YouTube.
+I made the game using C++, OOP, and raylib Library based on a tutorial on YouTube.
 
 Live Demo: https://tuantranquang0607.github.io/Pacman-Project/<br>
-Source: https://youtu.be/GXlckaGr0Eo?si=sDRkd0VmS34F9A-z <br>
-Source Code: https://github.com/servetgulnaroglu/pacman-js
+Source: https://www.youtube.com/watch?v=wVYKG_ch4yM<br>
+Source Code: https://github.com/educ8s/Cpp-Tetris-Game-with-raylib
 
 
 # 💫 About Me:
-I am an international student in Canada, majoring in Game Development. Besides, I dabble in Web Development and digital art. <br>Feel free to contact me for work or anything else.<br><br>Fun fact: I look much younger than my age 😊.
+I am an international student in Canada, majoring in Game Development. Besides, I dabble in Web Development and digital art. <br>Feel free to contact me for work or anything else.<br>
+My portfolio: https://tuantranquang0607.github.io/Tuan_Q._Tran-Official/<br><br>
+Fun fact: I look much younger than my age 😊.
 
 
 ## 🌐 Socials:
