@@ -1,7 +1,5 @@
-// The #pragma once directive helps ensure the header file is included only once by the compiler in a build.
 #pragma once
 
-// Include the vector library from the Standard Template Library (STL) and the raylib library.
 #include <vector>
 #include <raylib.h>
 
@@ -23,10 +21,10 @@ class Grid {
         // Declare a method to draw the grid.
         void Draw();
 
-    private:
-        // Declare a method to get the colors of the cells. This method returns a vector of Color objects.
-        std::vector<Color> getCellColors();
+        // Function to check if a cell is outside the grid
+        bool IsCellOutside(int row, int column); 
 
+    private:
         // Declare an integer to store the number of rows in the grid.
         int numRows;
 
