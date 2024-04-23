@@ -1,8 +1,7 @@
-// Include the raylib library
 #include <raylib.h>
 #include "grid.h"
+#include "blocks.cpp"
 
-// The main function where the program starts
 int main()
 {
     // Create a Color variable named darkblue
@@ -17,17 +16,10 @@ int main()
     // Create an instance of the Grid class
     Grid grid = Grid();
 
-    // Set the value at the first row and first column of the grid to 1
-    grid.grid[0][0] = 1;
-
-    // Set the value at the fourth row and sixth column of the grid to 4
-    grid.grid[3][5] = 4;
-
-    // Set the value at the eighteenth row and ninth column of the grid to 7
-    grid.grid[17][8] = 7;
-
     // Print the grid to the console
     grid.Print();
+
+    LBlock block = LBlock();
 
     // The game loop. It will continue to run as long as the window should not close
     while(WindowShouldClose() == false)
@@ -40,6 +32,9 @@ int main()
 
         // Call the Draw method of the grid object
         grid.Draw();
+
+        // Calls the Draw function of the block object
+        block.Draw();
 
         // Signal the end of drawing commands and displays everything that was drawn since the last call to BeginDrawing
         EndDrawing();

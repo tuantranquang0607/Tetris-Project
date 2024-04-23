@@ -1,6 +1,6 @@
-// Include the Grid class header file and the iostream library for console output
 #include "grid.h"
 #include <iostream>
+#include "colors.h"
 
 // Define the constructor for the Grid class
 Grid::Grid() {
@@ -16,8 +16,8 @@ Grid::Grid() {
     // Call the Initialize method to set up the grid
     Initialize();
 
-    // Call the getCellColors method to get the colors of the cells and store them in the colors vector
-    colors = getCellColors();
+    // Call the GetCellColors method to get the colors of the cells and store them in the colors vector
+    colors = GetCellColors();
 }
 
 // Define the Initialize method to set up the grid
@@ -44,22 +44,6 @@ void Grid::Print() {
         // Print a newline character to move to the next row
         std::cout << std::endl;
     }
-}
-
-// Define the getCellColors method to get the colors of the cells
-std::vector<Color> Grid::getCellColors() {
-    // Define some Color variables
-    Color darkGray = {26, 32, 40, 255};
-    Color green = {47, 230, 23, 255};
-    Color red = {232, 18, 218, 255};
-    Color orange = {226, 116, 17, 255};
-    Color yellow = {237, 234, 4, 255};
-    Color purple = {166, 0, 247, 255};
-    Color cyan = {21, 204, 209, 255};
-    Color blue = {13, 64, 216, 255};
-
-    // Return a vector containing the defined colors
-    return {darkGray, green, red, orange, yellow, purple, cyan, blue};
 }
 
 // Define the Draw method to render the grid
