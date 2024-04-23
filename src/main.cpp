@@ -1,6 +1,5 @@
 #include <raylib.h>
-#include "grid.h"
-#include "blocks.cpp"
+#include "game.h"
 
 int main()
 {
@@ -13,28 +12,23 @@ int main()
     // Set the game to run at a target of 60 frames per second
     SetTargetFPS(60);
 
-    // Create an instance of the Grid class
-    Grid grid = Grid();
-
-    // Print the grid to the console
-    grid.Print();
-
-    LBlock block = LBlock();
+    // Create a Game object named game
+    Game game = Game();
 
     // The game loop. It will continue to run as long as the window should not close
     while(WindowShouldClose() == false)
     {
+        // Update the game
+        game.HandleInput();
+
         // Signal the start of drawing commands
         BeginDrawing();
 
         // Clear the screen with the darkblue color
         ClearBackground(darkblue);
 
-        // Call the Draw method of the grid object
-        grid.Draw();
-
-        // Calls the Draw function of the block object
-        block.Draw();
+        // Draw the game
+        game.Draw();
 
         // Signal the end of drawing commands and displays everything that was drawn since the last call to BeginDrawing
         EndDrawing();
