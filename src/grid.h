@@ -21,7 +21,8 @@ class Grid {
         // Declare a method to draw the grid.
         void Draw();
 
-        bool IsCellOutside(int row, int column);
+        // Function to check if a cell is outside the grid
+        bool IsCellOutside(int row, int column); 
 
     private:
         // Declare an integer to store the number of rows in the grid.

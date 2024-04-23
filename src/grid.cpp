@@ -61,12 +61,15 @@ void Grid::Draw() {
     }
 }
 
+// Function in the Grid class to check if a cell is outside the grid
 bool Grid::IsCellOutside(int row, int column) {
+    // If the row is between 0 and numRows (exclusive), and the column is between 0 and numCols (exclusive)
     if (row >= 0 && row < numRows && column >= 0 && column < numCols) {
-        return false;
+        return false; // The cell is inside the grid, so return false
     }
-
+    // If the cell is not inside the grid, return true
     return true;
 }
+
 
 

@@ -22,20 +22,26 @@ void Block::Draw() {
     }
 }
 
+// Function to move the block by a certain number of rows and columns
 void Block::Move(int row, int column) {
-    rowOffset += row;
-    columnOffset += column;
+    rowOffset += row; // Increase the row offset by the input row
+    columnOffset += column; // Increase the column offset by the input column
 };
 
+// Function to get the positions of the cells in the block
 std::vector<Position> Block::GetCellPosition() {
-    std::vector<Position> tiles = cells[rotationState];
-    std::vector<Position> moveTiles;
+    std::vector<Position> tiles = cells[rotationState]; // Get the cells in the current rotation state
+    std::vector<Position> moveTiles; // Vector to store the new positions of the cells
 
+    // Loop through each cell in the block
     for (Position item : tiles) {
+        // Create a new position for the cell by adding the row and column offsets
         Position newPos = Position(item.row + rowOffset, item.column + columnOffset);
 
+        // Add the new position to the moveTiles vector
         moveTiles.push_back(newPos);
     }
 
+    // Return the new positions of the cells
     return moveTiles;
 };
