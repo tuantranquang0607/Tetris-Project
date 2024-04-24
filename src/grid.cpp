@@ -23,9 +23,9 @@ Grid::Grid() {
 // Define the Initialize method to set up the grid
 void Grid::Initialize() {
     // Loop through each row
-    for(int row = 0; row < numRows; row++) {
+    for (int row = 0; row < numRows; row++) {
         // Loop through each column in the current row
-        for(int column = 0; column < numCols; column++) {
+        for (int column = 0; column < numCols; column++) {
             // Set the value at the current row and column of the grid to 0
             grid[row][column] = 0;
         }
@@ -35,9 +35,9 @@ void Grid::Initialize() {
 // Define the Print method to display the grid
 void Grid::Print() {
     // Loop through each row
-    for(int row = 0; row < numRows; row++) {
+    for (int row = 0; row < numRows; row++) {
         // Loop through each column in the current row
-        for(int column = 0; column < numCols; column++) {
+        for (int column = 0; column < numCols; column++) {
             // Print the value at the current row and column of the grid
             std::cout << grid[row][column] << " ";
         }
@@ -49,9 +49,9 @@ void Grid::Print() {
 // Define the Draw method to render the grid
 void Grid::Draw() {
     // Loop through each row
-    for(int row = 0; row < numRows; row++) {
+    for (int row = 0; row < numRows; row++) {
         // Loop through each column in the current row
-        for(int column = 0; column < numCols; column++) {
+        for (int column = 0; column < numCols; column++) {
             // Get the value at the current row and column of the grid
             int cellValue = grid[row][column];
 

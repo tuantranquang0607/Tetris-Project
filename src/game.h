@@ -20,4 +20,5 @@ class Game {
         bool IsBlockOutside(); // Function to check if a block is outside the grid
         Block currentBlock; // Block object to represent the current block
         Block nextBlock; // Block object to represent the next block
+        void RotateBlock(); // Function to rotate the current block
 };

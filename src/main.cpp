@@ -16,7 +16,7 @@ int main()
     Game game = Game();
 
     // The game loop. It will continue to run as long as the window should not close
-    while(WindowShouldClose() == false)
+    while (WindowShouldClose() == false)
     {
         // Update the game
         game.HandleInput();
