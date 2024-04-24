@@ -116,6 +116,7 @@ void Game::LockBlock() {
 
     currentBlock = nextBlock; // Set the current block to the next block
     nextBlock = GetRandomBlock(); // Get a new random block as the next block
+    grid.ClearFullRows(); // Clear any full rows in the grid
 }
 
 // Function to check if the block fits in the grid

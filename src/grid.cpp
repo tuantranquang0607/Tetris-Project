@@ -73,8 +73,46 @@ bool Grid::IsCellOutside(int row, int column) {
 
 // Function in the Grid class to check if a cell is empty
 bool Grid::IsCellEmpty(int row, int column) {
+    // Check if the value at the given row and column of the grid is 0
     if (grid[row][column] == 0) {
         return true;
     }
     return false;
+}
+
+int Grid::ClearFullRows() {
+    int completed = 0;
+
+    for (int row = numRows - 1; row >= 0; row--) {
+        if (IsRowFull(row)) {
+            ClearRow(row);
+            completed++;
+        } else if (completed > 0) {
+            MoveRowDown(row, completed);
+        }
+    }
+    return completed;
+}
+
+// Function in the Grid class to check if a row is full
+bool Grid::IsRowFull(int row) {
+    for (int column = 0; column < numCols; column++) {
+        if (grid[row][column] == 0) {
+            return false;
+        }
+    }
+    return true;
+}
+
+void Grid::ClearRow(int row) {
+    for (int column = 0; column < numCols; column++) {
+        grid[row][column] = 0;
+    }
+}
+
+void Grid::MoveRowDown(int row, int numRows) {
+    for (int column = 0; column < numCols; column++) {
+        grid[row + numRows][column] = grid[row][column];
+        grid[row][column] = 0;
+    }
 }
