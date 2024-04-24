@@ -14,10 +14,15 @@ class Game {
         void MoveBlockRight(); // Function to move the current block to the right
         void MoveBlockDown(); // Function to move the current block down
         Grid grid; // Grid object to represent the game grid
+        bool gameOver; // Function to check if the game is over
 
     private:
         std::vector<Block> blocks; // Vector to store the blocks
         bool IsBlockOutside(); // Function to check if a block is outside the grid
         Block currentBlock; // Block object to represent the current block
         Block nextBlock; // Block object to represent the next block
+        void RotateBlock(); // Function to rotate the current block
+        void LockBlock(); // Function to lock the current block in place
+        bool BlockFits(); // Function to check if the block fits in the grid
+        void Reset(); // Function to reset the game
 };

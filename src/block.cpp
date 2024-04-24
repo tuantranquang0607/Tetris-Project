@@ -44,4 +44,27 @@ std::vector<Position> Block::GetCellPosition() {
 
     // Return the new positions of the cells
     return moveTiles;
+}
+
+// Function to rotate the block
+void Block::Rotate() {
+    // Increment the rotation state of the block
+    rotationState ++;
+
+    // If the rotation state exceeds the number of rotation states available, set it back to 0
+    if (rotationState == (int)cells.size()) {
+        rotationState = 0;
+    }
+}
+
+// Function to prevent the rotation of the block outside the grid
+void Block::UndoRotation() {
+    // Decrement the rotation state of the block
+    rotationState --;
+
+    // If the rotation state is less than 0, set it to the last rotation state
+    if (rotationState == -1) {
+        rotationState = cells.size() - 1;
+    }
 };
+

@@ -83,6 +83,17 @@
                 "isDefault": false
             },
             "detail": "compiler: C:\\raylib\\w64devkit\\bin\\g++.exe"
-        }
+        },
+        // Clean task
+        {
+            "label": "clean",
+            "type": "shell",
+            "command": "make",
+            "args": ["clean"],
+            "windows": {
+                "command": "C:/raylib/w64devkit/bin/mingw32-make.exe"
+            },
+            "group": "build"
+        }        
     ]
 }
