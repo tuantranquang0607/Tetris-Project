@@ -71,5 +71,10 @@ bool Grid::IsCellOutside(int row, int column) {
     return true;
 }
 
-
-
+// Function in the Grid class to check if a cell is empty
+bool Grid::IsCellEmpty(int row, int column) {
+    if (grid[row][column] == 0) {
+        return true;
+    }
+    return false;
+}

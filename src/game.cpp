@@ -59,7 +59,8 @@ void Game::HandleInput() {
 // Function to move the block to the left
 void Game::MoveBlockLeft() {
     currentBlock.Move(0, -1); // Move the block to the left
-    if (IsBlockOutside()) {
+
+    if (IsBlockOutside() || BlockFits() == false) {
         currentBlock.Move(0, 1); // If the block is outside the grid, move it back to the right
     }
 }
@@ -67,7 +68,8 @@ void Game::MoveBlockLeft() {
 // Function to move the block to the right
 void Game::MoveBlockRight() {
     currentBlock.Move(0, 1); // Move the block to the right
-    if (IsBlockOutside()) {
+
+    if (IsBlockOutside() || BlockFits() == false) {
         currentBlock.Move(0, -1); // If the block is outside the grid, move it back to the left
     }
 }
@@ -75,8 +77,10 @@ void Game::MoveBlockRight() {
 // Function to move the block down
 void Game::MoveBlockDown() {
     currentBlock.Move(1, 0); // Move the block down
-    if (IsBlockOutside()) {
+
+    if (IsBlockOutside() || BlockFits() == false) {
         currentBlock.Move(-1, 0); // If the block is outside the grid, move it back up
+        LockBlock(); // Lock the block in place
     }
 }
 
@@ -84,6 +88,7 @@ void Game::MoveBlockDown() {
 bool Game::IsBlockOutside()
 {
     std::vector<Position> tiles = currentBlock.GetCellPosition(); // Get the positions of the cells in the current block
+    
     for (Position item : tiles) {
         if (grid.IsCellOutside(item.row, item.column)) {
             return true; // If a cell is outside the grid, return true
@@ -96,8 +101,32 @@ bool Game::IsBlockOutside()
 void Game::RotateBlock() {
     currentBlock.Rotate(); // Rotate the block
 
-    if (IsBlockOutside()) {
+    if (IsBlockOutside() || BlockFits() == false) {
         currentBlock.UndoRotation(); // If the block is outside the grid, undo the rotation
     }
+}
+
+// Function to lock the block in place
+void Game::LockBlock() {
+    std::vector<Position> tiles = currentBlock.GetCellPosition(); // Get the positions of the cells in the current block
+
+    for (Position item : tiles) {
+        grid.grid[item.row][item.column] = currentBlock.id; // Set the value of the cell in the grid to the block's id
+    }
+
+    currentBlock = nextBlock; // Set the current block to the next block
+    nextBlock = GetRandomBlock(); // Get a new random block as the next block
+}
+
+// Function to check if the block fits in the grid
+bool Game::BlockFits() {
+    std::vector<Position> tiles = currentBlock.GetCellPosition(); // Get the positions of the cells in the current block
+
+    for (Position item : tiles) {
+        if (grid.IsCellEmpty(item.row, item.column) == false){
+            return false; // If a cell is occupied, return false
+        }
+    }
+    return true; // If no cells are occupied, return true
 }
 

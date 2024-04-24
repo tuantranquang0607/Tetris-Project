@@ -9,9 +9,10 @@ class Grid {
         Grid(); // Declare a constructor for the Grid class.
         void Initialize(); // Declare a method to initialize the grid.
         void Print(); // Declare a method to print the grid.
-        int grid[20][10]; // Declare a 2D array named grid with 20 rows and 10 columns.
         void Draw(); // Declare a method to draw the grid.
         bool IsCellOutside(int row, int column); // Function to check if a cell is outside the grid
+        bool IsCellEmpty(int row, int column); // Function to check if a cell is empty
+        int grid[20][10]; // Declare a 2D array named grid with 20 rows and 10 columns.
 
     private:
         int numRows; // Declare an integer to store the number of rows in the grid.

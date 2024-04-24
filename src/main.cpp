@@ -1,8 +1,22 @@
 #include <raylib.h>
 #include "game.h"
 
-int main()
-{
+// Declare a variable to store the last update time
+double lastUpdateTime = 0;
+
+bool EventTriggered(double interval) {
+    // Get the current time
+    double currentTime = GetTime();
+
+    // Check if the time interval has passed
+    if (currentTime - lastUpdateTime >= interval) {
+        lastUpdateTime = currentTime;
+        return true;
+    }
+    return false;
+}
+
+int main() {
     // Create a Color variable named darkblue
     Color darkblue = {44, 44, 127, 255};
 
@@ -16,8 +30,7 @@ int main()
     Game game = Game();
 
     // The game loop. It will continue to run as long as the window should not close
-    while (WindowShouldClose() == false)
-    {
+    while (WindowShouldClose() == false) {
         // Update the game
         game.HandleInput();
 
@@ -32,6 +45,11 @@ int main()
 
         // Signal the end of drawing commands and displays everything that was drawn since the last call to BeginDrawing
         EndDrawing();
+
+        // Move the block down every 0.2 seconds
+        if (EventTriggered(0.2)) {
+            game.MoveBlockDown();
+        }
     }
 
     // Close the window once the game loop has ended
