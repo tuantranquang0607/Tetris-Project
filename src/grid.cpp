@@ -87,6 +87,7 @@ int Grid::ClearFullRows() {
 
     // Loop through each row from the bottom to the top
     for (int row = numRows - 1; row >= 0; row--) {
+        // Check if the current row is full
         if (IsRowFull(row)) {
             ClearRow(row); // Clear the row if it is full
             completed++; // Increment the number of completed rows
@@ -101,6 +102,7 @@ int Grid::ClearFullRows() {
 bool Grid::IsRowFull(int row) {
     // Loop through each column in the given row
     for (int column = 0; column < numCols; column++) {
+        // If any cell in the row is empty, return false
         if (grid[row][column] == 0) {
             return false;
         }

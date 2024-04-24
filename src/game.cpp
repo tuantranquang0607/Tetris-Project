@@ -7,6 +7,7 @@ Game::Game() {
     blocks = GetAllBlocks(); // Get all types of blocks
     currentBlock = GetRandomBlock(); // Get a random block as the current block
     nextBlock = GetRandomBlock(); // Get a random block as the next block
+    gameOver = false; // Set the game over flag to false
 }
 
 // Function to get a random block
@@ -38,6 +39,12 @@ void Game::Draw() {
 void Game::HandleInput() {
     int keyPressed = GetKeyPressed(); // Get the key pressed by the user
 
+    // Restart the game if it is over and a key is pressed
+    if (gameOver && keyPressed != 0) {
+        gameOver = false; 
+        Reset();
+    }
+
     // Perform an action based on the key pressed
     switch (keyPressed)
     {
@@ -58,29 +65,35 @@ void Game::HandleInput() {
 
 // Function to move the block to the left
 void Game::MoveBlockLeft() {
-    currentBlock.Move(0, -1); // Move the block to the left
+    if (!gameOver) {
+        currentBlock.Move(0, -1); // Move the block to the left
 
-    if (IsBlockOutside() || BlockFits() == false) {
-        currentBlock.Move(0, 1); // If the block is outside the grid, move it back to the right
+        if (IsBlockOutside() || BlockFits() == false) {
+            currentBlock.Move(0, 1); // If the block is outside the grid, move it back to the right
+        }
     }
 }
 
 // Function to move the block to the right
 void Game::MoveBlockRight() {
-    currentBlock.Move(0, 1); // Move the block to the right
+    if (!gameOver) {
+        currentBlock.Move(0, 1); // Move the block to the right
 
-    if (IsBlockOutside() || BlockFits() == false) {
-        currentBlock.Move(0, -1); // If the block is outside the grid, move it back to the left
+        if (IsBlockOutside() || BlockFits() == false) {
+            currentBlock.Move(0, -1); // If the block is outside the grid, move it back to the left
+        }
     }
 }
 
 // Function to move the block down
 void Game::MoveBlockDown() {
-    currentBlock.Move(1, 0); // Move the block down
+    if (!gameOver) {
+        currentBlock.Move(1, 0); // Move the block down
 
-    if (IsBlockOutside() || BlockFits() == false) {
-        currentBlock.Move(-1, 0); // If the block is outside the grid, move it back up
-        LockBlock(); // Lock the block in place
+        if (IsBlockOutside() || BlockFits() == false) {
+            currentBlock.Move(-1, 0); // If the block is outside the grid, move it back up
+            LockBlock(); // Lock the block in place
+        }
     }
 }
 
@@ -99,10 +112,12 @@ bool Game::IsBlockOutside()
 
 // Function to rotate the block
 void Game::RotateBlock() {
-    currentBlock.Rotate(); // Rotate the block
+    if (!gameOver) {
+        currentBlock.Rotate(); // Rotate the block
 
-    if (IsBlockOutside() || BlockFits() == false) {
-        currentBlock.UndoRotation(); // If the block is outside the grid, undo the rotation
+        if (IsBlockOutside() || BlockFits() == false) {
+            currentBlock.UndoRotation(); // If the block is outside the grid, undo the rotation
+        }
     }
 }
 
@@ -117,6 +132,10 @@ void Game::LockBlock() {
     currentBlock = nextBlock; // Set the current block to the next block
     nextBlock = GetRandomBlock(); // Get a new random block as the next block
     grid.ClearFullRows(); // Clear any full rows in the grid
+
+    if (BlockFits() == false) {
+        gameOver = true; // If the new block does not fit in the grid, set the game over flag to true
+    }
 }
 
 // Function to check if the block fits in the grid
@@ -129,5 +148,12 @@ bool Game::BlockFits() {
         }
     }
     return true; // If no cells are occupied, return true
+}
+
+void Game::Reset() {
+    grid.Initialize(); // Initialize the grid
+    blocks = GetAllBlocks(); // Get all types of blocks
+    currentBlock = GetRandomBlock(); // Get a random block as the current block
+    nextBlock = GetRandomBlock(); // Get a random block as the next block
 }
 
