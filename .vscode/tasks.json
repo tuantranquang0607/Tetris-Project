@@ -84,6 +84,7 @@
             },
             "detail": "compiler: C:\\raylib\\w64devkit\\bin\\g++.exe"
         },
+        // Clean task
         {
             "label": "clean",
             "type": "shell",

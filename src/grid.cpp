@@ -80,15 +80,18 @@ bool Grid::IsCellEmpty(int row, int column) {
     return false;
 }
 
+// Function in the Grid class to clear full rows
 int Grid::ClearFullRows() {
+    // Initialize a variable to store the number of completed rows
     int completed = 0;
 
+    // Loop through each row from the bottom to the top
     for (int row = numRows - 1; row >= 0; row--) {
         if (IsRowFull(row)) {
-            ClearRow(row);
-            completed++;
+            ClearRow(row); // Clear the row if it is full
+            completed++; // Increment the number of completed rows
         } else if (completed > 0) {
-            MoveRowDown(row, completed);
+            MoveRowDown(row, completed); // Move the row down by the number of completed rows
         }
     }
     return completed;
@@ -96,6 +99,7 @@ int Grid::ClearFullRows() {
 
 // Function in the Grid class to check if a row is full
 bool Grid::IsRowFull(int row) {
+    // Loop through each column in the given row
     for (int column = 0; column < numCols; column++) {
         if (grid[row][column] == 0) {
             return false;
@@ -104,15 +108,19 @@ bool Grid::IsRowFull(int row) {
     return true;
 }
 
+// Function in the Grid class to clear a row
 void Grid::ClearRow(int row) {
+    // Loop through each column in the given row
     for (int column = 0; column < numCols; column++) {
-        grid[row][column] = 0;
+        grid[row][column] = 0; // Set the value in the current row to 0
     }
 }
 
+// Function in the Grid class to move a row down
 void Grid::MoveRowDown(int row, int numRows) {
+    // Loop through each column in the given row
     for (int column = 0; column < numCols; column++) {
-        grid[row + numRows][column] = grid[row][column];
-        grid[row][column] = 0;
+        grid[row + numRows][column] = grid[row][column]; // Move the value from the current row to the row below
+        grid[row][column] = 0; // Set the value in the current row to 0
     }
 }
