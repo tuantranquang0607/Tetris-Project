@@ -33,6 +33,9 @@ int main() {
 
     // The game loop. It will continue to run as long as the window should not close
     while (WindowShouldClose() == false) {
+        // Update the music stream
+        UpdateMusicStream(game.music);
+
         // Update the game
         game.HandleInput();
 

@@ -9,6 +9,18 @@ Game::Game() {
     nextBlock = GetRandomBlock(); // Get a random block as the next block
     gameOver = false; // Set the game over flag to false
     score = 0; // Set the score to 0
+    InitAudioDevice(); // Initialize the audio device
+    music = LoadMusicStream("Sounds/music.mp3"); // Load the music stream
+    PlayMusicStream(music); // Play the music stream
+    rotateSound = LoadSound("Sounds/rotate.mp3"); // Load the sound for rotating the block
+    clearSound = LoadSound("Sounds/clear.mp3"); // Load the sound for clearing a row
+}
+
+Game::~Game() {
+    UnloadSound(rotateSound); // Unload the sound for rotating the block
+    UnloadSound(clearSound); // Unload the sound for clearing a row
+    UnloadMusicStream(music); // Unload the music stream
+    CloseAudioDevice(); // Close the audio device
 }
 
 // Function to get a random block
@@ -131,6 +143,8 @@ void Game::RotateBlock() {
 
         if (IsBlockOutside() || BlockFits() == false) {
             currentBlock.UndoRotation(); // If the block is outside the grid, undo the rotation
+        } else {
+            PlaySound(rotateSound); // Play the sound for rotating the block
         }
     }
 }
@@ -146,7 +160,11 @@ void Game::LockBlock() {
     currentBlock = nextBlock; // Set the current block to the next block
     nextBlock = GetRandomBlock(); // Get a new random block as the next block
     int rowCleared = grid.ClearFullRows(); // Clear any full rows in the grid
-    UpdateScore(rowCleared, 0); // Update the score based on the number of rows cleared and the move down points
+
+    if (rowCleared > 0) {
+        PlaySound(clearSound); // Play the sound for clearing a row
+        UpdateScore(rowCleared, 0); // Update the score based on the number of rows cleared and the move down points
+    }
 
     if (BlockFits() == false) {
         gameOver = true; // If the new block does not fit in the grid, set the game over flag to true

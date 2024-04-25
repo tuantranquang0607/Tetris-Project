@@ -11,6 +11,7 @@ class Game {
         void MoveBlockDown(); // Function to move the current block down
         bool gameOver; // Function to check if the game is over
         int score; // Function to store the score
+        Music music; // Function to store the music
 
     private:
         Grid grid; // Grid object to represent the game grid
@@ -27,4 +28,6 @@ class Game {
         bool BlockFits(); // Function to check if the block fits in the grid
         void Reset(); // Function to reset the game
         void UpdateScore(int linesCleared, int moveDownPoints); // Function to update the score
+        Sound rotateSound; // Sound for rotating the block
+        Sound clearSound; // Sound for clearing a row
 };
