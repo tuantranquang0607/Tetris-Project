@@ -9,7 +9,7 @@
 class Block {
     public:
         Block(); // Constructor for the Block class
-        void Draw(); // Function to draw the block
+        void Draw(int offsetX, int offsetY); // Function to draw the block
         void Move(int row, int column); // Function to move the block
         std::vector<Position> GetCellPosition(); // Function to get the positions of the cells in the block
         int id; // Unique identifier for the block
