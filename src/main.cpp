@@ -1,5 +1,6 @@
 #include <raylib.h>
 #include "game.h"
+#include "colors.h"
 
 // Declare a variable to store the last update time
 double lastUpdateTime = 0;
@@ -17,17 +18,17 @@ bool EventTriggered(double interval) {
 }
 
 int main() {
-    // Create a Color variable named darkblue
-    Color darkblue = {44, 44, 127, 255};
-
     // Initialize a window for the game with a width of 300 pixels, a height of 600 pixels, and the title "raylib Tetris tutorial"
-    InitWindow(300, 600, "raylib Tetris tutorial");
+    InitWindow(500, 620, "raylib Tetris Project");
 
     // Set the game to run at a target of 60 frames per second
     SetTargetFPS(60);
 
     // Create a Game object named game
     Game game = Game();
+
+    // Set font
+    Font font =LoadFontEx("Font/monogram.ttf", 64, 0, 0);
 
     // The game loop. It will continue to run as long as the window should not close
     while (WindowShouldClose() == false) {
@@ -38,7 +39,7 @@ int main() {
         BeginDrawing();
 
         // Clear the screen with the darkblue color
-        ClearBackground(darkblue);
+        ClearBackground(darkBlue);
 
         // Draw the game
         game.Draw();
@@ -50,6 +51,19 @@ int main() {
         if (EventTriggered(0.2)) {
             game.MoveBlockDown();
         }
+
+        // Draw the score and next block
+        DrawTextEx(font, "Score", {365, 15}, 38, -1, WHITE);
+        DrawTextEx(font, "Next", {370, 175}, 38, 2, WHITE);
+
+        // Draw the "GAME OVER" text if the game is over
+        if (game.gameOver) {
+            DrawTextEx(font, "GAME OVER", {320, 450}, 38, 2, WHITE);
+        }
+
+        // Fraw rectangles for the score and next block
+        DrawRectangleRounded({320, 55, 170, 60}, 0.3, 6, lightBlue);
+        DrawRectangleRounded({320, 215, 170, 180}, 0.3, 6, lightBlue);
     }
 
     // Close the window once the game loop has ended

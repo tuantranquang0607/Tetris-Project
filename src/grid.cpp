@@ -55,8 +55,8 @@ void Grid::Draw() {
             // Get the value at the current row and column of the grid
             int cellValue = grid[row][column];
 
-            // Draw a rectangle at the current cell's position with the color corresponding to the cell's value
-            DrawRectangle(column * cellSize + 1, row * cellSize + 1, cellSize - 1, cellSize - 1, colors[cellValue]);
+            // Draw a rectangle for the cell at the appropriate position and color
+            DrawRectangle(column * cellSize + 11, row * cellSize + 11, cellSize - 1, cellSize - 1, colors[cellValue]);
         }
     }
 }

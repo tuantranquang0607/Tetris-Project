@@ -1,6 +1,6 @@
 #include "colors.h"
 
-// Define a Color structure with 4 components: red, green, blue, and alpha (transparency)
+// Define a Color structures with 4 components: red, green, blue, and alpha (transparency)
 const Color darkGray = {26, 32, 40, 255};
 const Color green = {47, 230, 23, 255};
 const Color red = {232, 18, 218, 255};
@@ -9,6 +9,8 @@ const Color yellow = {237, 234, 4, 255};
 const Color purple = {166, 0, 247, 255};
 const Color cyan = {21, 204, 209, 255};
 const Color blue = {13, 64, 216, 255};
+const Color lightBlue = {59, 85, 162, 255};
+const Color darkBlue = {44, 44, 127, 255};
 
 // Function to return a vector of predefined colors
 std::vector<Color> GetCellColors() {

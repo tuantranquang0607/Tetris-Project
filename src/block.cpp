@@ -18,7 +18,7 @@ void Block::Draw() {
     for (Position item : tiles) {
         // Draw a rectangle for each cell at the appropriate position and color
         // The '+1' and '-1' are for leaving a small gap between cells
-        DrawRectangle(item.column * cellSize + 1, item.row * cellSize + 1, cellSize - 1, cellSize - 1, colors[id]);
+        DrawRectangle(item.column * cellSize + 11, item.row * cellSize + 11, cellSize - 1, cellSize - 1, colors[id]);
     }
 }
 
