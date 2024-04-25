@@ -10,7 +10,7 @@ Block::Block() {
 }
 
 // Function to draw the block
-void Block::Draw() {
+void Block::Draw( int offsetX, int offsetY) {
     // Get the positions of the cells in the block
     std::vector<Position> tiles = GetCellPosition();
 
@@ -18,7 +18,7 @@ void Block::Draw() {
     for (Position item : tiles) {
         // Draw a rectangle for each cell at the appropriate position and color
         // The '+1' and '-1' are for leaving a small gap between cells
-        DrawRectangle(item.column * cellSize + 1, item.row * cellSize + 1, cellSize - 1, cellSize - 1, colors[id]);
+        DrawRectangle(item.column * cellSize + offsetX, item.row * cellSize + offsetY, cellSize - 1, cellSize - 1, colors[id]);
     }
 }
 
