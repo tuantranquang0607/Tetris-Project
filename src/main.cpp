@@ -42,7 +42,7 @@ int main() {
         // Signal the start of drawing commands
         BeginDrawing();
 
-        // Clear the screen with the darkblue color
+        // Clear the screen with the dark blue color
         ClearBackground(darkBlue);
 
         // Draw the game
