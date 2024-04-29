@@ -1,6 +1,6 @@
 # Tetris
 
-In my first game development project, I used C++, OOP principles, and the Raylib Library to create an interactive game. For the first time, I used Visual Studio Code for C++ development and compiled the game into WebAssembly, making it playable on the web. I was guided by a YouTube tutorial. This challenging experience expanded my technical skills and fueled my passion for game development<br><br>
+I followed a YouTube tutorial to make this game using C++, OOP principles, and Raylib library and compiled it into WebAssembly to make it playable directly on the web for the first time.<br><br>
 
 Source: https://www.youtube.com/watch?v=wVYKG_ch4yM and https://www.youtube.com/watch?v=j6akryezlzc<br>
 Source Code: https://github.com/educ8s/Cpp-Tetris-Game-with-raylib
