@@ -6,6 +6,7 @@
 class Game {
     public:
         Game(); // Constructor for the Game class
+        ~Game(); // Destructor for the Game class
         void Draw(); // Function to draw the game
         void HandleInput(); // Function to handle user input
         void MoveBlockDown(); // Function to move the current block down
