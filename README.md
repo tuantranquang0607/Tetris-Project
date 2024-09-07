@@ -2,7 +2,7 @@
 
 I followed a YouTube tutorial to make this game using C++, OOP principles, and Raylib library and compiled it into WebAssembly to make it playable directly on the web for the first time.<br><br>
 
-raylib library: https://www.raylib.com/ br>
+raylib library: https://www.raylib.com/ <br>
 C++ reference: https://en.cppreference.com/w/
 
 
